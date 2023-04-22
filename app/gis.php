@@ -1,5 +1,5 @@
 <?php
- ob_end_flush();
+ //ob_end_flush();
  ini_set("output_buffering", "0");
  ob_implicit_flush(true);
  header('Content-Type: text/event-stream');
@@ -12,7 +12,7 @@ function echoEvent($datatext) {
 
  echoEvent("Start!");
  //формируем строку запуска скрипта imapsync с параметрами
- $strexe = "/bin/bash /app/startimapsync.sh "
+ $strexe = "/bin/bash /var/www/html/startimapsync.sh "
            .htmlspecialchars($_COOKIE["mail1"]).' '
            .htmlspecialchars($_COOKIE["pass1"])." "
            .htmlspecialchars($_COOKIE["mail2"])." "

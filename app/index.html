@@ -27,12 +27,12 @@
       document.cookie = "msrv2="+document.maildata.msrv2.value;
       //alert(document.cookie); // показываем все куки
       isexe();
-      document.cookie = "mail1="+document.maildata.mail1.value+"; max-age=0";
-      document.cookie = "pass1="+document.maildata.pass1.value+"; max-age=0";
-      document.cookie = "mail2="+document.maildata.mail2.value+"; max-age=0";
-      document.cookie = "pass2="+document.maildata.pass2.value+"; max-age=0";
-      document.cookie = "msrv1="+document.maildata.msrv1.value+"; max-age=0";
-      document.cookie = "msrv2="+document.maildata.msrv2.value+"; max-age=0";
+      //document.cookie = "mail1="+document.maildata.mail1.value+"; max-age=0";
+      //document.cookie = "pass1="+document.maildata.pass1.value+"; max-age=0";
+      //document.cookie = "mail2="+document.maildata.mail2.value+"; max-age=0";
+      //document.cookie = "pass2="+document.maildata.pass2.value+"; max-age=0";
+      //document.cookie = "msrv1="+document.maildata.msrv1.value+"; max-age=0";
+      //document.cookie = "msrv2="+document.maildata.msrv2.value+"; max-age=0";
     }//Complete
 
     function ShowCookie() {
@@ -50,13 +50,13 @@
         <TR><TD><B>Пароль:<B>
             <TD><INPUT TYPE="password" NAME="pass1" SIZE=20 VALUE=""
         <TR><TD><B>IMAP сервер:<B></TD>
-            <TD><INPUT NAME="msrv1" SIZE=20 VALUE=""<TD>
+            <TD><INPUT NAME="msrv1" SIZE=20 VALUE="imap.yandex.ru"<TD>
         <TR><TD><B>Конечный почтовый ящик:<B></TD>
             <TD><INPUT NAME="mail2" SIZE=20 VALUE=""
         <TR><TD><B>Пароль:<B>
             <TD><INPUT TYPE="password" NAME="pass2" SIZE=20 VALUE=""
         <TR><TD><B>IMAP сервер:<B></TD>
-            <TD><INPUT NAME="msrv2" SIZE=20 VALUE=""<TD>
+            <TD><INPUT NAME="msrv2" SIZE=20 VALUE="imap"<TD>
     </TABLE>
     <p>Результат выполнения:<br/><textarea id="output" style="width: 50%; height: 25em;"></textarea></p>
    <INPUT TYPE="button" VALUE="Выполнить" onClick="Complete();">
