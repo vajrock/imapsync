@@ -1,0 +1,67 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script>
+          //запуск скрипта sh из командной строки linux
+     function isexe() {
+      var ta = document.getElementById('output');
+      document.getElementById('output').value += 'Start import, please wait...\n';
+      var source = new EventSource('gis.php');
+      source.addEventListener('message', function(e) {
+       if (e.data !== '') {
+        ta.value += e.data + '\n';
+       }
+      }, false);
+      source.addEventListener('error', function(e) {
+       source.close();
+      }, false);
+     }//isexe
+
+    //кнопка Выполнить
+    function Complete() {
+      document.cookie = "mail1="+document.maildata.mail1.value;
+      document.cookie = "pass1="+document.maildata.pass1.value;
+      document.cookie = "mail2="+document.maildata.mail2.value;
+      document.cookie = "pass2="+document.maildata.pass2.value;
+      document.cookie = "msrv1="+document.maildata.msrv1.value;
+      document.cookie = "msrv2="+document.maildata.msrv2.value;
+      //alert(document.cookie); // показываем все куки
+      isexe();
+      document.cookie = "mail1="+document.maildata.mail1.value+"; max-age=0";
+      document.cookie = "pass1="+document.maildata.pass1.value+"; max-age=0";
+      document.cookie = "mail2="+document.maildata.mail2.value+"; max-age=0";
+      document.cookie = "pass2="+document.maildata.pass2.value+"; max-age=0";
+      document.cookie = "msrv1="+document.maildata.msrv1.value+"; max-age=0";
+      document.cookie = "msrv2="+document.maildata.msrv2.value+"; max-age=0";
+    }//Complete
+
+    function ShowCookie() {
+     alert(document.cookie); // показываем все куки
+    }
+    </script>
+</head>
+
+<body>
+<H1>Миграция почтового ящика</H1>
+<FORM NAME="maildata">
+   <TABLE>
+        <TR><TD><B>Исходный почтовый ящик:<B></TD>
+            <TD><INPUT NAME="mail1" SIZE=20 VALUE=""
+        <TR><TD><B>Пароль:<B>
+            <TD><INPUT TYPE="password" NAME="pass1" SIZE=20 VALUE=""
+        <TR><TD><B>IMAP сервер:<B></TD>
+            <TD><INPUT NAME="msrv1" SIZE=20 VALUE=""<TD>
+        <TR><TD><B>Конечный почтовый ящик:<B></TD>
+            <TD><INPUT NAME="mail2" SIZE=20 VALUE=""
+        <TR><TD><B>Пароль:<B>
+            <TD><INPUT TYPE="password" NAME="pass2" SIZE=20 VALUE=""
+        <TR><TD><B>IMAP сервер:<B></TD>
+            <TD><INPUT NAME="msrv2" SIZE=20 VALUE=""<TD>
+    </TABLE>
+    <p>Результат выполнения:<br/><textarea id="output" style="width: 50%; height: 25em;"></textarea></p>
+   <INPUT TYPE="button" VALUE="Выполнить" onClick="Complete();">
+    <INPUT TYPE="reset" VALUE="Сброс">
+    <INPUT TYPE="button" VALUE="Показать cookie" onClick="ShowCookie();">
+</FORM>
+</body>
+</html>
