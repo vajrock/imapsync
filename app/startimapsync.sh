@@ -4,8 +4,8 @@
 #запуск imapsync с нужными параметрами
 /var/www/html/imapsync \
   --host1 $5:993    --user1 $1 --password1 $2 \
-  --host2 $6:993    --user2 $3 --password2 $4 \
-  --ssl1  --ssl2 \
+  --host2 $6:143    --user2 $3 --password2 $4 \
+  --ssl1 \
   --automap \
   --folderfirst INBOX \
   --regextrans2 "s/&BB4EQgQ,BEAEMAQyBDsENQQ9BD0ESwQ1-/Sent/" \
